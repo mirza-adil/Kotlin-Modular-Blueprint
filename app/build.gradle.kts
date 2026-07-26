@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
@@ -7,11 +8,7 @@ plugins {
 
 android {
     namespace = "com.mirza.kotlinmodularblueprint"
-    compileSdk {
-        version = release(37) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.mirza.kotlinmodularblueprint"
@@ -33,8 +30,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -47,6 +43,10 @@ android {
         compose = true
         buildConfig = true
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
