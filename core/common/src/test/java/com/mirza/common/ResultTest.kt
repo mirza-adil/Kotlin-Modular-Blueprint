@@ -99,6 +99,7 @@ class ResultTest {
         assertThat(callbackValue).isEqualTo("test")
     }
 
+    
     @Test
     fun `onSuccess callback is not invoked for Error`() {
         var callbackInvoked = false
