@@ -26,3 +26,4 @@ rootProject.name = "Kotlin Modular Blueprint"
 include(":app")
 include(":core:common")
 include(":core:database")
+include(":core:network")
