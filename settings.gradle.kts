@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Kotlin Modular Blueprint"
 include(":app")
+include(":core:common")
