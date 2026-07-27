@@ -14,6 +14,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        // BuildConfig fields for API configuration
+        buildConfigField("String", "BASE_URL", "\"https://api.bank.com/\"")
+        buildConfigField("long", "CONNECT_TIMEOUT", "30L")
+        buildConfigField("long", "READ_TIMEOUT", "30L")
+        buildConfigField("long", "WRITE_TIMEOUT", "30L")
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

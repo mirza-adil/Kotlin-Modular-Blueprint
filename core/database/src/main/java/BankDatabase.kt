@@ -7,7 +7,7 @@ import entity.BankEntity
 import entity.CardEntity
 
 /**
- * Room Database for the BakingApp.
+ * Room Database for the BankApp.
  * 
  * Includes all entities and DAOs.
  * Version should be incremented when schema changes.
