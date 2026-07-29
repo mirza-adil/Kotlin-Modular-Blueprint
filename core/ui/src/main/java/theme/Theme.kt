@@ -97,7 +97,7 @@ fun BankAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = BakingTypography,
+        typography = BankTypography,
         content = content
     )
 }
