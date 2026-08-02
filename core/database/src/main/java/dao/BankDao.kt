@@ -10,6 +10,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import entity.AccountsEntity
 import entity.BankEntity
+import entity.BankWithDetails
 import entity.CardEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -26,17 +27,14 @@ interface BankDao {
     suspend fun insertRecipe(recipe: BankEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRecipes(recipes: List<AccountsEntity>)
+    suspend fun insertIngredients(ingredients: List<AccountsEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertIngredients(ingredients: List<CardEntity>)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSteps(steps: List<BankEntity>)
+    suspend fun insertSteps(steps: List<CardEntity>)
 
     @Transaction
     suspend fun insertRecipeWithDetails(
-        recipe: BankEntity, ingredients: List<CardEntity>, steps: List<BankEntity>
+        recipe: BankEntity, ingredients: List<AccountsEntity>, steps: List<CardEntity>
     ) {
         insertRecipe(recipe)
         insertIngredients(ingredients)
@@ -52,24 +50,24 @@ interface BankDao {
     fun getRecipesPagingSource(): PagingSource<Int, BankEntity>
 
     @Query("SELECT * FROM recipes WHERE id = :recipeId")
-    fun getRecipeById(recipeId: String): Flow<AccountsEntity?>
+    fun getRecipeById(recipeId: String): Flow<BankEntity?>
 
     @Transaction
     @Query("SELECT * FROM recipes WHERE id = :recipeId")
-    fun getRecipeWithDetails(recipeId: String): Flow<AccountsEntity?>
+    fun getRecipeWithDetails(recipeId: String): Flow<BankWithDetails?>
 
     @Transaction
     @Query("SELECT * FROM recipes ORDER BY created_at DESC")
-    fun getAllRecipesWithDetails(): Flow<List<AccountsEntity>>
+    fun getAllRecipesWithDetails(): Flow<List<BankWithDetails>>
 
     @Query("SELECT * FROM recipes WHERE category = :category ORDER BY created_at DESC")
-    fun getRecipesByCategory(category: String): Flow<List<AccountsEntity>>
+    fun getRecipesByCategory(category: String): Flow<List<BankEntity>>
 
     @Query("SELECT * FROM recipes WHERE is_favorite = 1 ORDER BY created_at DESC")
-    fun getFavoriteRecipes(): Flow<List<AccountsEntity>>
+    fun getFavoriteRecipes(): Flow<List<BankEntity>>
 
     @Query("SELECT * FROM recipes WHERE name LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%' ORDER BY created_at DESC")
-    fun searchRecipes(query: String): Flow<List<AccountsEntity>>
+    fun searchRecipes(query: String): Flow<List<BankEntity>>
 
     @Query("SELECT COUNT(*) FROM recipes")
     suspend fun getRecipeCount(): Int
@@ -77,7 +75,7 @@ interface BankDao {
     // ==================== UPDATE ====================
 
     @Update
-    suspend fun updateRecipe(recipe: CardEntity)
+    suspend fun updateRecipe(recipe: BankEntity)
 
     @Query("UPDATE recipes SET is_favorite = :isFavorite WHERE id = :recipeId")
     suspend fun updateFavoriteStatus(recipeId: String, isFavorite: Boolean)
@@ -85,7 +83,7 @@ interface BankDao {
     // ==================== DELETE ====================
 
     @Delete
-    suspend fun deleteRecipe(recipe: AccountsEntity)
+    suspend fun deleteRecipe(recipe: BankEntity)
 
     @Query("DELETE FROM recipes WHERE id = :recipeId")
     suspend fun deleteRecipeById(recipeId: String)

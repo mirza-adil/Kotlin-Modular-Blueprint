@@ -83,6 +83,15 @@ android {
     // NDK required for Android 15+ (16KB page alignment)
     ndkVersion = libs.versions.ndk.get()
 
+    // Registers CMakeLists.txt so Gradle actually compiles native-keys.cpp —
+    // without this, the defaultConfig/buildTypes externalNativeBuild blocks
+    // above configure flags for a native build that never runs.
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
+    }
 }
 
 dependencies {

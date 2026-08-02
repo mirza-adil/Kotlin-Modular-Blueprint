@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 /**
- * Typography configuration for the BakingApp.
+ * Typography configuration for the BankApp.
  * Uses default fonts - replace with custom fonts by adding font files to res/font/
  * 
  * To use custom fonts:
@@ -33,7 +33,7 @@ private val DisplayFont = FontFamily.Serif
 private val BodyFont = FontFamily.SansSerif
 
 /**
- * Typography configuration for the BakingApp.
+ * Typography configuration for the BankApp.
  * Follows Material 3 type scale.
  */
 val BankTypography = Typography(

@@ -1,6 +1,7 @@
 package di
 
 import adapter.NetworkResponseAdapterFactory
+import api.AuthApi
 import com.mirza.network.BuildConfig
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -76,6 +77,12 @@ object NetworkModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(NetworkResponseAdapterFactory())
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthApi(retrofit: Retrofit): AuthApi {
+        return retrofit.create(AuthApi::class.java)
     }
 }
 

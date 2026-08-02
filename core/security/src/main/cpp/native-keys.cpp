@@ -142,7 +142,7 @@ extern "C" {
  * @return Decoded API key, or empty string if verification fails
  */
 JNIEXPORT jstring JNICALL
-Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getApiKeyNative(
+Java_com_mirza_security_di_NativeKeyProvider_getApiKeyNative(
         JNIEnv* env,
         jobject /* thiz */,
         jobject context
@@ -166,7 +166,7 @@ Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getApiKeyNative(
  * @return Decoded Secret key, or empty string if verification fails
  */
 JNIEXPORT jstring JNICALL
-Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getSecretKeyNative(
+Java_com_mirza_security_di_NativeKeyProvider_getSecretKeyNative(
         JNIEnv* env,
         jobject /* thiz */,
         jobject context
@@ -190,7 +190,7 @@ Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getSecretKeyNative(
  * @return Composite identifier string
  */
 JNIEXPORT jstring JNICALL
-Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getAppIdentifierNative(
+Java_com_mirza_security_di_NativeKeyProvider_getAppIdentifierNative(
         JNIEnv* env,
         jobject /* thiz */
 ) {
@@ -208,7 +208,7 @@ Java_com_eslam_bakingapp_core_security_NativeKeyProvider_getAppIdentifierNative(
  * @return true if the key matches the expected format
  */
 JNIEXPORT jboolean JNICALL
-Java_com_eslam_bakingapp_core_security_NativeKeyProvider_validateKeyFormatNative(
+Java_com_mirza_security_di_NativeKeyProvider_validateKeyFormatNative(
         JNIEnv* env,
         jobject /* thiz */,
         jstring keyToValidate

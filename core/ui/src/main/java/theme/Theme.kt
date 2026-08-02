@@ -68,7 +68,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 /**
- * BakingApp Theme composable.
+ * BankApp Theme composable.
  * Supports light/dark mode and dynamic colors on Android 12+.
  */
 @Composable

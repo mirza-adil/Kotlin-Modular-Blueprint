@@ -33,7 +33,7 @@ import com.mirza.ui.theme.BankAppTheme
  * Custom styled text field for the BankApp.
  */
 @Composable
-fun BakingTextField(
+fun BankTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -120,7 +120,7 @@ fun PasswordTextField(
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
     
-    BakingTextField(
+    BankTextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -157,10 +157,10 @@ fun PasswordTextField(
 
 @Preview(showBackground = true)
 @Composable
-private fun BakingTextFieldPreview() {
+private fun BankTextFieldPreview() {
     BankAppTheme() {
         Column(modifier = Modifier.padding(16.dp)) {
-            BakingTextField(
+            BankTextField(
                 value = "test@email.com",
                 onValueChange = {},
                 label = "Email"
