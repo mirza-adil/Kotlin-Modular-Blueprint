@@ -7,7 +7,6 @@ BankApp's security layer, entirely in `core:security` (plus `AuthInterceptor` in
 - **Native (NDK/C++) API key storage** with XOR obfuscation and package-name verification
 - **Encrypted session storage** via `EncryptedSharedPreferences`
 - **Bearer token injection** that skips login/refresh requests
-- Gaps that are honestly not yet closed: certificate pinning, network security config, header redaction
 
 ✅ **Writing this doc surfaced two real, currently-fixed bugs that had made the native key provider non-functional — see [The JNI Package Mismatch](#-the-jni-package-mismatch-fixed) for what was wrong and how it was verified fixed.**
 
